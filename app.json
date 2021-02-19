@@ -1,0 +1,12 @@
+{
+  "name": "home-interior",
+  "displayName": "home-interior",
+  "expo": {
+    "name": "home-interior",
+    "slug": "home-interior",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
