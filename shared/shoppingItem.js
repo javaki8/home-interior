@@ -35,7 +35,7 @@ export const IMGDATA = [
   {
     id: 7,
     title: '조안 아쿠아텍스 패브릭소파',
-    image: "https://boniegagu.speedgabia.com/sofa-2man/20200605-joan/01.jpg",
+    image: "https://boniegagu.speedgabia.com/sofa-2man/20200605-joan/02.jpg",
 
   },
   {
