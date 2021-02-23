@@ -36,7 +36,6 @@ const HomeStackScreen = () => {
       <HomeStack.Screen name="Home" component={Home} options={{ title: "나만의 집", headerTitleAlign: "center" }} />
       <HomeStack.Screen name="HomeInterior" component={HomeInterior} options={{ title: "모두의 집", headerTitleAlign: "center" }} />
       <HomeStack.Screen name="HomeDetails" component={HomeDetails} options={{ title: "모두의 집 구경하기", headerTitleAlign: "center" }} />
-   
     </HomeStack.Navigator>
   )
 }

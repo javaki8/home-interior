@@ -1,20 +1,31 @@
-import React from 'react';
+import React,{useState, useCallback, useEffect} from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements'
-
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ScrollView } from 'react-native-gesture-handler'
-import { INTERIORDATA } from '../shared/interior'
 
-const HomeDetails = ( { route, navigation }) => {
+import api from '../api/list'
 
-  console.log("--detail");
+// 모두의 집 페이지 ( 홈에서 아이콘 )
+
+const HomeDetails = ( {route, navigation }) => {
+
+  const [item, setItem] = useState({});
+
+  const getDetails = useCallback(async () => {
+    const result = await api.get(id);
+    console.log(result.data);
+    setItem(result.data);
+  }, [])
+
+  useEffect(()=>{
+    getDetails();
+  }, []);
+
+  console.log("--Homedetail");
   console.log(route.params);
 
   const { id } = route.params;
-
-  const item = INTERIORDATA.filter(item => item.id == id)[0];
-  console.log(item);
 
   const tasks = useSelector(state => state.tasks);
   console.log("--tasks--");
@@ -23,6 +34,7 @@ const HomeDetails = ( { route, navigation }) => {
   const isExistedTask = tasks.filter(item => item.id == id).length > 0 ? true : false;
   console.log("--isExistedTask--");
   console.log(isExistedTask);
+
 
   return (
     <View

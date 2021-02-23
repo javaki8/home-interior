@@ -1,19 +1,33 @@
 
-import React from 'react';
+import React,{ useEffect, useCallback, useState } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { IMGDATA } from '../shared/shoppingItem'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Button } from 'react-native';
 import { useDispatch } from 'react-redux'
 import { addTask } from '../redux/actions/tasks'
+import api from '../api/list'
 
+
+// 상세 페이지 getItem 
 
 const ShoppingDetails = ({ route, navigation }) => {
 
-
+  console.log("--ShoppingDetails");
   const { id } = route.params;
-  const item = IMGDATA.filter(item => item.id == id)[0];
+  const [item, setItem] = useState({});
+
   const dispatch = useDispatch();
+
+  const getDetails = useCallback(async () => {
+    const result = await api.getItem(id);
+    console.log(result.data);
+    setItem(result.data);
+  }, [])
+
+  useEffect(()=>{
+    getDetails();
+  }, []);
+
 
   return (
     <View
@@ -25,8 +39,8 @@ const ShoppingDetails = ({ route, navigation }) => {
 
       <ScrollView >
         <Image
-          source={{ uri: item.image }}
-          style={pages.img} />
+          source={{ uri: item.detail }}
+          style={styles.img} />
         <Button
           onPress={() => { dispatch(addTask(item)) }}
           title="찜하기">
@@ -37,7 +51,7 @@ const ShoppingDetails = ({ route, navigation }) => {
     </View>
   )
 }
-const pages = StyleSheet.create({
+const styles = StyleSheet.create({
 
   img: {
     height: 1000,
