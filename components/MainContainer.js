@@ -13,8 +13,8 @@ import Shopping from './Shopping'
 import ShoppingDetails from './ShoppingDetails'
 import MyPage from './MyPage'
 
-import { useDispatch } from 'react-redux';
-
+import { useDispatch,useSelector } from 'react-redux';
+import { Alert } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const HomeStack = createStackNavigator();
@@ -91,6 +91,21 @@ export default function Main() {
     dispatch({type:"FETCH_TASKS"})
   }, [])
   
+  
+  const alert = useSelector(state => state.alert)
+  console.log('--alert--')
+  console.log(alert)
+
+  if(alert.isShow) {
+    Alert.alert(
+      "Errors",
+      alert.msg,
+      [
+        { text: "OK", onPress: () => dispatch({type:"CLOSE_ALERT"}) }
+      ],
+      { cancelable: false }
+    );
+  } 
 
   return (
  

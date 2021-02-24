@@ -19,16 +19,11 @@ const ShoppingDetails = ({ route, navigation }) => {
   const dispatch = useDispatch();
 
   const tasks = useSelector(state => state.tasks);
-  console.log("--tasks--");
-  console.log(tasks);
 
   const isExistedTask = tasks.filter(item => item.id == id).length > 0 ? true : false;
-  console.log("--isExistedTask--");
-  console.log(isExistedTask);
 
   const getDetails = useCallback(async () => {
     const result = await api.getItem(id);
-    console.log(result.data);
     setItem(result.data);
   }, [])
 
