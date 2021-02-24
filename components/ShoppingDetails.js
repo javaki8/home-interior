@@ -1,12 +1,12 @@
 
-import React,{ useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler'
 import { Button } from 'react-native';
-import { useDispatch } from 'react-redux'
 import { addTask } from '../redux/actions/tasks'
 import api from '../api/list'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { removeTask } from '../redux/actions/tasks'
 
 // 상세 페이지 getItem 
 
@@ -18,16 +18,23 @@ const ShoppingDetails = ({ route, navigation }) => {
 
   const dispatch = useDispatch();
 
+  const tasks = useSelector(state => state.tasks);
+  console.log("--tasks--");
+  console.log(tasks);
+
+  const isExistedTask = tasks.filter(item => item.id == id).length > 0 ? true : false;
+  console.log("--isExistedTask--");
+  console.log(isExistedTask);
+
   const getDetails = useCallback(async () => {
     const result = await api.getItem(id);
     console.log(result.data);
     setItem(result.data);
   }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     getDetails();
   }, []);
-
 
   return (
     <View
@@ -41,11 +48,20 @@ const ShoppingDetails = ({ route, navigation }) => {
         <Image
           source={{ uri: item.detail }}
           style={styles.img} />
-        <Button
-          onPress={() => { dispatch(addTask(item)) }}
-          title="찜하기">
-        </Button>
+        {
+          isExistedTask
+            ?
+            <Button
+              onPress={() => { dispatch(removeTask(id))}}
+              title="취소하기">
+            </Button>
+            :
+            <Button
+              onPress={() => { dispatch(addTask(item)) }}
+              title="찜하기">
+            </Button>
 
+        }
 
       </ScrollView>
     </View>
