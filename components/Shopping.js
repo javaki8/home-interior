@@ -59,4 +59,3 @@ const Shopping = ({ navigation }) => {
   )
 }
 export default Shopping;
-

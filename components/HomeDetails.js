@@ -28,12 +28,12 @@ const HomeDetails = ( {route, navigation }) => {
   const { id } = route.params;
 
   const tasks = useSelector(state => state.tasks);
-  console.log("--tasks--");
-  console.log(tasks);
+ // console.log("--tasks--");
+//console.log(tasks);
 
   const isExistedTask = tasks.filter(item => item.id == id).length > 0 ? true : false;
-  console.log("--isExistedTask--");
-  console.log(isExistedTask);
+ // console.log("--isExistedTask--");
+ // console.log(isExistedTask);
 
 
   return (
