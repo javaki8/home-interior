@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "490686962459",
+    "project_id": "notification-lecture-da72b",
+    "storage_bucket": "notification-lecture-da72b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490686962459:android:aa21899f96222d614511be",
+        "android_client_info": {
+          "package_name": "com.homeinterior"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490686962459-r71tpgvchc5b1un0eofq3evubvka2is7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCICfVdnpaEEvbFW_8eIGG_2pAWOq4NBAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490686962459-r71tpgvchc5b1un0eofq3evubvka2is7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
