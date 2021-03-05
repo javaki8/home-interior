@@ -1,5 +1,6 @@
 
-import React,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,8 +13,9 @@ import HomeInterior from './HomeInterior'
 import Shopping from './Shopping'
 import ShoppingDetails from './ShoppingDetails'
 import MyPage from './MyPage'
+import HWTest from './HWTest'
 
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Alert } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -72,6 +74,11 @@ const screenOptions = ({ route }) => ({
           ? 'cart'
           : 'cart-outline';
         break;
+      case 'HWTest':
+        iconName = focused
+          ? 'navigate-circle'
+          : 'navigate-circle-outline';
+        break;
     }
     // You can return any component that you like here!
     return <Ionicons name={iconName} size={size} color={color} />;
@@ -86,38 +93,39 @@ const tabBarOptions = {
 export default function Main() {
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log("-- main is mounted--")
-    dispatch({type:"FETCH_TASKS"})
+    dispatch({ type: "FETCH_TASKS" })
   }, [])
-  
-  
+
+
   const alert = useSelector(state => state.alert)
   console.log('--alert--')
   console.log(alert)
 
-  if(alert.isShow) {
+  if (alert.isShow) {
     Alert.alert(
       "Errors",
       alert.msg,
       [
-        { text: "OK", onPress: () => dispatch({type:"CLOSE_ALERT"}) }
+        { text: "OK", onPress: () => dispatch({ type: "CLOSE_ALERT" }) }
       ],
       { cancelable: false }
     );
-  } 
+  }
 
   return (
- 
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <Tab.Navigator screenOptions={screenOptions} tabBarOptions={tabBarOptions} >
-            <Tab.Screen name="Home" component={HomeStackScreen} />
-            <Tab.Screen name="Item" component={ShoppingStackScreen} />
-            <Tab.Screen name="MyPage" component={MyPageStackeScreen} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
-  
+
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Tab.Navigator screenOptions={screenOptions} tabBarOptions={tabBarOptions} >
+          <Tab.Screen name="Home" component={HomeStackScreen} />
+          <Tab.Screen name="Item" component={ShoppingStackScreen} />
+          <Tab.Screen name="MyPage" component={MyPageStackeScreen} />
+          <Tab.Screen name="HWTest" component={HWTest} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+
   );
 }
