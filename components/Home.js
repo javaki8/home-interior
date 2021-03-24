@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import { SliderBox } from './SliderBox' 
+import { SliderBox } from './SliderBox'
 
 export default class Home extends Component {
   constructor(props) {
@@ -31,34 +31,34 @@ export default class Home extends Component {
     return (
       <SafeAreaView style={styles.container} onLayout={this.onLayout}>
         <View style={{ flexDirection: 'row' }}>
-        <View>
-          <TouchableOpacity onPress={() => { navigation.navigate("HomeInterior") }}
-          >
-            <ImageBackground source={require("../img/homeicon.jpg")} style={{ width: 125, height: 100, marginRight : 20 }}>
-            <Text style={styles.text}> 모두의 집 </Text>
-            </ImageBackground>
-          </TouchableOpacity>
-        </View>
+          <View>
+            <TouchableOpacity onPress={() => { navigation.navigate("HomeInterior") }}
+            >
+              <ImageBackground source={require("../img/homeicon.jpg")} style={{ width: 125, height: 100, marginRight: 20 }}>
+                <Text style={styles.text}> 모두의 집 </Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
 
-        <View>
-          <TouchableOpacity onPress={() => { navigation.navigate("Item") }}
-          >
-            <ImageBackground source={require("../img/homeMyPage.jpg")} style={{ width: 125, height: 100 }}>
-            <Text style={styles.text}> 나만의 아이템 </Text>
-            </ImageBackground>
+          <View>
+            <TouchableOpacity onPress={() => { navigation.navigate("Item") }}
+            >
+              <ImageBackground source={require("../img/homeMyPage.jpg")} style={{ width: 125, height: 100 }}>
+                <Text style={styles.text}> 나만의 아이템 </Text>
+              </ImageBackground>
 
-          </TouchableOpacity>
-         </View>
+            </TouchableOpacity>
+          </View>
 
-        <View >
-          <TouchableOpacity onPress={() => { navigation.navigate("MyPage") }}
-          >
-            <ImageBackground source={require("../img/homeCart.jpg")} style={{ width: 125, height: 100 }}>
-            <Text style={styles.text}> 찜하기 </Text>
-            </ImageBackground>
+          <View >
+            <TouchableOpacity onPress={() => { navigation.navigate("MyPage") }}
+            >
+              <ImageBackground source={require("../img/homeCart.jpg")} style={{ width: 125, height: 100 }}>
+                <Text style={styles.text}> 찜하기 </Text>
+              </ImageBackground>
 
-          </TouchableOpacity>
-         </View>
+            </TouchableOpacity>
+          </View>
         </View>
 
 
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontSize: 15,
-    margin:10,
+    margin: 10,
     textAlign: "center"
   }
 });

@@ -1,11 +1,11 @@
-import React,{useState, useCallback, useEffect} from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { View } from 'react-native';
 import { INTERIORDATA } from '../shared/interior'
 import api from '../api/list'
 import { ListItem, Avatar } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler'
 
-const HomeInterior= ( { navigation }) => {
+const HomeInterior = ({ navigation }) => {
 
   const [list, setList] = useState([]);
 
@@ -15,7 +15,7 @@ const HomeInterior= ( { navigation }) => {
     setList(result.data);
   }, [])
 
- useEffect(() => {
+  useEffect(() => {
     const unsubscribe = navigation.addListener(
       'focus',
       () => {
@@ -24,8 +24,8 @@ const HomeInterior= ( { navigation }) => {
       }
     )
 
-  return unsubscribe;
-   }, [navigation])
+    return unsubscribe;
+  }, [navigation])
 
   return (
     <View style={{ flex: 1 }}>

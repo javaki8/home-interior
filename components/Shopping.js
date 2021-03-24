@@ -26,7 +26,7 @@ const Shopping = ({ navigation }) => {
         getList();
       }
     )
-    
+
     return unsubscribe;
   }, [navigation])
 

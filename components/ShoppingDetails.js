@@ -47,7 +47,7 @@ const ShoppingDetails = ({ route, navigation }) => {
           isExistedTask
             ?
             <Button
-              onPress={() => { dispatch(removeTask(id))}}
+              onPress={() => { dispatch(removeTask(id)) }}
               title="취소하기">
             </Button>
             :

@@ -1,4 +1,4 @@
-import React,{useState, useCallback, useEffect} from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +8,7 @@ import api from '../api/list'
 
 // 모두의 집 페이지 ( 홈에서 아이콘 )
 
-const HomeDetails = ( {route, navigation }) => {
+const HomeDetails = ({ route, navigation }) => {
 
   const [item, setItem] = useState({});
 
@@ -18,7 +18,7 @@ const HomeDetails = ( {route, navigation }) => {
     setItem(result.data);
   }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     getDetails();
   }, []);
 
@@ -28,12 +28,12 @@ const HomeDetails = ( {route, navigation }) => {
   const { id } = route.params;
 
   const tasks = useSelector(state => state.tasks);
- // console.log("--tasks--");
-//console.log(tasks);
+  // console.log("--tasks--");
+  //console.log(tasks);
 
   const isExistedTask = tasks.filter(item => item.id == id).length > 0 ? true : false;
- // console.log("--isExistedTask--");
- // console.log(isExistedTask);
+  // console.log("--isExistedTask--");
+  // console.log(isExistedTask);
 
 
   return (
@@ -44,17 +44,17 @@ const HomeDetails = ( {route, navigation }) => {
         alignItems: "center"
       }}>
       <Card>
-      <ScrollView >
-        <Card.Title>{item.title}</Card.Title>
-        <Card.Divider/>
-        <Card.Image 
-        style={{ width : 350, height : 280}}
-        source={{uri: item.image}}>
-        </Card.Image>
-        <Card.Divider/>        
-        <Text style={{marginBottom: 10}}>
-          {item.subtitle}
-        </Text>
+        <ScrollView >
+          <Card.Title>{item.title}</Card.Title>
+          <Card.Divider />
+          <Card.Image
+            style={{ width: 350, height: 280 }}
+            source={{ uri: item.image }}>
+          </Card.Image>
+          <Card.Divider />
+          <Text style={{ marginBottom: 10 }}>
+            {item.subtitle}
+          </Text>
         </ScrollView>
       </Card>
     </View>
