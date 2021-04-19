@@ -17,7 +17,7 @@
 
 
 * * *
-  * #### Redux-Saga / 비동기 작업 API 처리 및 Stack Navigation 상세이동
+  * #### Redux를 사용하여 컴포넌트간 데이터 
 * * *
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/78784000/115191094-f027ce80-a123-11eb-86a7-796f55f03b88.gif)  
 
